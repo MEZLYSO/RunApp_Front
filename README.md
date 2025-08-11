@@ -8,11 +8,12 @@
 ![React Badge](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000&style=for-the-badge)
 ![TypeScript Badge](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff&style=for-the-badge)
 
-
 </div>
 
 
 # 📖 Description 
+
+# Screenshots
 
 # 📑 KanBan this proyect 
 

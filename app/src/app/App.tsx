@@ -1,9 +1,10 @@
+import Router from "./routes"
 
 function App() {
 
   return (
     <>
-      <h1></h1>
+      <Router />
     </>
   )
 }
