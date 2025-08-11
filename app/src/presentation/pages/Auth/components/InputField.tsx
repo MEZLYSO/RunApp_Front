@@ -1,14 +1,18 @@
+import type { ChangeEventHandler } from "react"
+
 interface InputProps {
+  id: string
   type: string,
   placeholder?: string
   name: string
-  changeCont?: () => void
+  changeCont: ChangeEventHandler<HTMLInputElement>
 }
 
-function InputField({ type, placeholder = "", name, changeCont }: InputProps) {
+function InputField({ id, type, placeholder = "", name, changeCont }: InputProps) {
   return (
     <>
       <input
+        id={id}
         onChange={changeCont}
         name={name}
         type={type}

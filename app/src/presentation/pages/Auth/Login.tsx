@@ -1,9 +1,12 @@
+import useForm from "../../hooks/useForm"
 import ButtonPrimary from "./components/ButtonPrimary"
 import InputField from "./components/InputField"
 
 
-
 function Login() {
+
+  const { handleChange } = useForm()
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
       <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md">
@@ -13,7 +16,8 @@ function Login() {
           <div>
             <label className="block text-sm font-medium text-gray-700">Correo electrónico</label>
             <InputField
-              changeCont={ }
+              id="email"
+              changeCont={handleChange}
               name="emailInput"
               type="email"
               placeholder="Correo electrónico" />
@@ -22,7 +26,12 @@ function Login() {
           <div>
             <label className="block text-sm font-medium text-gray-700">Contraseña</label>
             <div className="relative">
-              <InputField name="passwordInput" type="password" placeholder="Contraseña" />
+              <InputField
+                id="password"
+                changeCont={handleChange}
+                name="passwordInput"
+                type="password"
+                placeholder="Contraseña" />
               <span className="absolute inset-y-0 right-3 flex items-center text-gray-400 cursor-pointer">👁</span>
             </div>
           </div>

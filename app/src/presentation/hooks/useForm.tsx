@@ -1,17 +1,23 @@
+import { useState, type ChangeEventHandler } from "react"
 
-const useLogin = () => {
+const useForm = () => {
 
-  const handleChange = (e: HTMLInputElement) => {
+  const [formData, setFormData] = useState({})
 
-    console.log(e.value)
+  const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    const { id, value } = e.target
 
+    setFormData({
+      ...formData,
+      [id]: value
+    })
   }
 
-
   return {
+    formData,
     handleChange
   }
 
 }
 
-export default useLogin
+export default useForm
