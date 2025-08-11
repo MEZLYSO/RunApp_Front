@@ -15,11 +15,14 @@
 
 # Screenshots
 
+1. Login V1
+<img src="./images/loginv1.png"/>
+
 # 📑 KanBan this proyect 
 
 | TO DO | IN PROGRESS| DONE|
 | --------------- | --------------- | --------------- |
-|Desing the Login page    | | Init the proyect|
+| |Desing the Login page | Init the proyect|
 |Desing the SignUp page | | |
 |Desing the Home page | | |
 |Desing the User page | | |
