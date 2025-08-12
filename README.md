@@ -1,5 +1,7 @@
 # 👟 RunApp_Front
 
+<img src="./images/RUNAPP.png" />
+
 # 🧠 TechStack
 
 <div display="flex">
@@ -17,13 +19,13 @@ Front for App(RunApp)
 # Screenshots
 
 <details>
-<summary>Login Page</summary>
+<summary>🔒Login Page</summary>
 <br>
 <img src="./images/loginv2.png"/>
 </details>
 
 <details>
-<summary>SignUp Page</summary>
+<summary>🔒SignUp Page</summary>
 <br>
 <img src="./images/signupv1.png"/>
 </details>
@@ -37,6 +39,8 @@ Front for App(RunApp)
 |🧾Desing business logic  | |🎨Desing the Login page   |
 |🎨Desing the Home page | |🎨Desing the SignUp page   |
 |🎨Desing the User page | | |
+|😎Implement SEO  | | |
+|😎Upgrade SEO| | |
 
 
 # Use this repository
