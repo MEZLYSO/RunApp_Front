@@ -36,6 +36,8 @@ function Router() {
         {/* Redireccionador */}
         <Route path='/' element={<Navigate to='/auth' />} />
 
+        {/* Not Found */}
+
       </Routes>
     </BrowserRouter >
   )

@@ -1,6 +1,7 @@
 import useForm from "../../hooks/useForm"
 import BackgroundAuth from "../../components/ui/BackgroundAuth"
 import InputField from "./components/InputField"
+import ButtonPrimary from "./components/ButtonPrimary"
 
 function Singnup() {
   const { handleChange, type, handleVisible } = useForm()
@@ -49,10 +50,7 @@ function Singnup() {
               placeholder="Confirmar contraseña"
             />
           </div>
-
-          <button type="submit" className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md font-medium">
-            Crear cuenta
-          </button>
+          <ButtonPrimary message="Crear cuenta " />
 
           <p className="text-sm text-center text-gray-600">
             ¿Ya tienes cuenta?
