@@ -16,14 +16,17 @@ Front for App(RunApp)
 
 # Screenshots
 
-## Login V1
-<img src="./images/loginv1.png"/>
-
-## Login V2
+<details>
+<summary>Login Page</summary>
+<br>
 <img src="./images/loginv2.png"/>
+</details>
 
-## SignUp
+<details>
+<summary>SignUp Page</summary>
+<br>
 <img src="./images/signupv1.png"/>
+</details>
 
 
 # 📑 KanBan this proyect 
