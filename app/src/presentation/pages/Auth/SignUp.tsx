@@ -1,9 +1,9 @@
 import useForm from "../../hooks/useForm"
-import BackgroundAuth from "./components/BackgroundAuth"
+import BackgroundAuth from "../../components/ui/BackgroundAuth"
 import InputField from "./components/InputField"
 
 function Singnup() {
-  const { handleChange } = useForm()
+  const { handleChange, type, handleVisible } = useForm()
   return (
     <div className="min-h-screen flex items-center justify-center p-6">
 
@@ -29,10 +29,14 @@ function Singnup() {
               <InputField
                 changeCont={handleChange}
                 id="password"
-                type="password"
+                type={type.type}
                 placeholder="Contraseña"
               />
-              <span className="absolute inset-y-0 right-3 flex items-center text-gray-400 cursor-pointer">👁</span>
+              <span
+                onClick={handleVisible}
+                className="text-2xl absolute inset-y-0 right-3 flex items-center text-gray-400 cursor-pointer">
+                {type.text}
+              </span>
             </div>
           </div>
 
@@ -41,7 +45,7 @@ function Singnup() {
             <InputField
               changeCont={handleChange}
               id="confirm_password"
-              type="password"
+              type={type.type}
               placeholder="Confirmar contraseña"
             />
           </div>

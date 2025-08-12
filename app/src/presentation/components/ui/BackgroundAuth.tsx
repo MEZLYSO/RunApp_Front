@@ -1,4 +1,4 @@
-import backgroundImage from '../../../../assets/background.avif'
+import backgroundImage from '../../../assets/optimalbg.avif'
 function BackgroundAuth() {
   return (
     <div

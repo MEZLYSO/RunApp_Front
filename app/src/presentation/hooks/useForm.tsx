@@ -5,7 +5,6 @@ const useForm = () => {
 
   const [formData, setFormData] = useState({})
   const navigate = useNavigate()
-  const [type, setType] = useState("password")
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const { id, value } = e.target
@@ -20,14 +19,24 @@ const useForm = () => {
     navigate('/home', { replace: true })
   }
 
-  const handleVisible = () => {
 
+  // Functions for change type in Input password
+  const initialStateType = { type: 'password', text: '🔒' }
+  const [type, setType] = useState(initialStateType)
+  const handleVisible = () => {
+    if (type.type === "password") {
+      setType({ type: 'text', text: '🔓' })
+    } else {
+      setType(initialStateType)
+    }
   }
 
   return {
     formData,
+    type,
     handleChange,
-    handleSubmit
+    handleSubmit,
+    handleVisible
   }
 
 }

@@ -2,6 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router'
 import Login from '../../presentation/pages/Auth/Login'
 import { lazy, Suspense } from 'react'
 import Singnup from '../../presentation/pages/Auth/SignUp'
+import LoadingPage from '../../presentation/components/layout/LoadingPage'
 const HomePage = lazy(async () => import('../../presentation/pages/Home/HomePage'))
 
 function Router() {
@@ -25,7 +26,7 @@ function Router() {
           element={
             <Suspense
               fallback={
-                <h1>Loading</h1>
+                <LoadingPage />
               }>
               <HomePage />
             </Suspense>
