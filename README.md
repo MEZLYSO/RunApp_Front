@@ -30,6 +30,13 @@ Front for App(RunApp)
 <img src="./images/signupv1.png"/>
 </details>
 
+<details>
+<summary>🏠HomePage</summary>
+<br>
+<img src="./images/homepage.png"/>
+</details>
+
+
 
 # 📑 KanBan this proyect 
 
@@ -37,8 +44,8 @@ Front for App(RunApp)
 | --------------- | --------------- | --------------- |
 |📁Init Design core  | ⚙️Add Hook for Form |📦Init the proyect|
 |🧾Desing business logic  | |🎨Desing the Login page   |
-|🎨Desing the Home page | |🎨Desing the SignUp page   |
-|🎨Desing the User page | | |
+| | |🎨Desing the SignUp page   |
+|🎨Desing the User page | |🎨Desing the Home page  |
 |😎Implement SEO  | | |
 |😎Upgrade SEO| | |
 

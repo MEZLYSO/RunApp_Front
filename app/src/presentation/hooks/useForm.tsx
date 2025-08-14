@@ -19,7 +19,6 @@ const useForm = () => {
     navigate('/home', { replace: true })
   }
 
-
   // Functions for change type in Input password
   const initialStateType = { type: 'password', text: '🙈' }
   const [type, setType] = useState(initialStateType)
