@@ -4,7 +4,6 @@ import useWeather from "../../hooks/useWeather";
 
 function HomePage() {
 
-  const { data, status } = useWeather()
 
 
   return (
@@ -19,7 +18,7 @@ function HomePage() {
         </header>
 
         {/* <!-- Banner clima --> */}
-        <WeatherWidget data={data!} status={status} />
+        <WeatherWidget />
 
         {/* <!-- Carreras --> */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
