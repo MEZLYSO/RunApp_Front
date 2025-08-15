@@ -1,21 +1,11 @@
 import { useEffect } from "react";
+import WeatherWidget from "./components/WeatherWidget";
+import useWeather from "../../hooks/useWeather";
 
 function HomePage() {
-  useEffect(() => {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          console.log("Latitud:", position.coords.latitude);
-          console.log("Longitud:", position.coords.longitude);
-        },
-        (error) => {
-          console.error("Error al obtener ubicación:", error.message);
-        }
-      );
-    } else {
-      console.error("La geolocalización no está soportada en este navegador.");
-    }
-  }, []);
+
+  const { data, status } = useWeather()
+
 
   return (
     <>
@@ -29,19 +19,7 @@ function HomePage() {
         </header>
 
         {/* <!-- Banner clima --> */}
-        <section className="bg-green-600 text-white rounded-xl shadow-lg p-8 mb-8 flex flex-col md:flex-row items-center justify-between">
-          <div>
-            <h2 className="text-xl font-semibold mb-2">Clima actual</h2>
-            <p className="text-lg">Soleado, 28°C</p>
-            <p className="text-sm text-green-100">Ciudad de ejemplo</p>
-          </div>
-          <div className="mt-4 md:mt-0">
-            {/* <!-- Ícono de clima --> */}
-            <span
-              className="text-4xl"
-            >☀️</span>
-          </div>
-        </section>
+        <WeatherWidget data={data!} status={status} />
 
         {/* <!-- Carreras --> */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
