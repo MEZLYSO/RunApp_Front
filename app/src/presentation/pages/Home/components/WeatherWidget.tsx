@@ -11,7 +11,7 @@ function WeatherWidget() {
   const { coords, error, loading } = useGeolocation()
   const { data, status, error: errorWeather } = useWeather(coords)
 
-  if (loading) return <h1>Cargando...</h1>
+  if (loading) return <h1>Cargando..</h1>
   if (error) return <h1>Error:{error}</h1>
 
   if (errorWeather) return <h1>Error:{error}</h1>
@@ -20,16 +20,20 @@ function WeatherWidget() {
     <section className="bg-green-600 text-white rounded-xl shadow-lg p-8 mb-8 flex justify-center items-center">
       <div>
         <div className="grid grid-cols-2 max-w-100">
-          <div>
-            <h2 className="text-lg font-semibold mb-2">Clima actual</h2>
-            <p className="text-4xl font-bold">{data.temp}</p>
-            <p className="text-[15px] text-green-100">{data.feels}</p>
-          </div>
-          <div className="flex justify-center items-center">
-            <span
-              className="text-8xl text-center"
-            >{data.icon}</span>
-          </div>
+          {status === "success" ? (
+            <>
+              <div>
+                <h2 className="text-lg font-semibold mb-2">Clima actual</h2>
+                <p className="text-4xl font-bold">{data?.temp}</p>
+                <p className="text-[15px] text-green-100">{data?.feels}</p>
+              </div>
+              <div className="flex justify-center items-center">
+                <span
+                  className="text-8xl text-center"
+                >{data?.icon}</span>
+              </div>
+            </>
+          ) : (<h1>Cargando...</h1>)}
         </div>
       </div>
     </section >

@@ -1,6 +1,4 @@
-import { useEffect } from "react";
 import WeatherWidget from "./components/WeatherWidget";
-import useWeather from "../../hooks/useWeather";
 
 function HomePage() {
 
