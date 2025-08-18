@@ -4,11 +4,14 @@ import type { Weather } from "../../core/entities/weatherInterface";
 
 const useWeather = (coords: { lat: number, lon: number }): UseQueryResult<Weather> => {
   return useQuery({
-    queryKey: ['weather'],
+    queryKey: ['weather', coords],
     queryFn: () => fetchWeatherByCoord(coords),
-    enabled: coords.lat !== 0 && coords.lon !== 0,
+    enabled: !!coords,
     refetchInterval: 5 * 60 * 1000,
-    refetchOnWindowFocus: false
+    gcTime: 30 * 60 * 1000, // Tiempo de vida de los datos en memoria 
+    refetchOnWindowFocus: false, // Obtener de nuevo cuando cambias de ventana
+    staleTime: 5 * 60 * 1000,
+    refetchOnReconnect: true
   })
 };
 

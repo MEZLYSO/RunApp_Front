@@ -21,7 +21,9 @@ const useGeolocation = () => {
     }, (error) => {
       setError(error.message)
       setLoading(true)
-    })
+    },
+      { enableHighAccuracy: false }
+    )
 
   }, [])
 
