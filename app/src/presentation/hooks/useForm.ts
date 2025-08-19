@@ -1,10 +1,15 @@
 import { useState, type ChangeEventHandler } from "react"
 import { useNavigate } from "react-router"
+import AuthService from "../../data/services/AuthService"
 
 const useForm = () => {
 
+
   // Functions for Auth Forms (Testing)
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  })
   const navigate = useNavigate()
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const { id, value } = e.target
@@ -14,9 +19,15 @@ const useForm = () => {
     })
   }
 
-  const handleSubmit: ChangeEventHandler<HTMLFormElement> = (e) => {
+  //Auth Methods
+
+  const { loginService } = AuthService()
+
+  const handleSubmitLogin: ChangeEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault()
-    navigate('/home', { replace: true })
+    const { password, email } = formData
+    loginService({ password, email })
+    // navigate('/home', { replace: true })
   }
 
   // Functions for change type in Input password
@@ -34,7 +45,7 @@ const useForm = () => {
     formData,
     type,
     handleChange,
-    handleSubmit,
+    handleSubmitLogin,
     handleVisible
   }
 

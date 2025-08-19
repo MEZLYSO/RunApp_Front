@@ -6,7 +6,7 @@ const BackgroundAuth = lazy(() => import("../../components/ui/BackgroundAuth"))
 
 function Login() {
 
-  const { handleChange, handleSubmit, handleVisible, type } = useForm()
+  const { handleChange, handleSubmitLogin, handleVisible, type } = useForm()
 
   return (
     <div
@@ -16,7 +16,8 @@ function Login() {
         <h2 className="text-2xl font-bold mb-6">Iniciar sesión</h2>
 
         <form
-          onSubmit={handleSubmit}
+          method="POST"
+          onSubmit={handleSubmitLogin}
           className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">Correo electrónico</label>
