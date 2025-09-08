@@ -3,6 +3,7 @@ import Login from '../../presentation/pages/Auth/Login'
 import { lazy, Suspense } from 'react'
 import Singnup from '../../presentation/pages/Auth/SignUp'
 import LoadingPage from '../../presentation/components/layout/LoadingPage'
+import UserPage from '../../presentation/pages/Home/UserPage'
 const HomePage = lazy(async () => import('../../presentation/pages/Home/HomePage'))
 
 function Router() {
@@ -29,6 +30,19 @@ function Router() {
                 <LoadingPage />
               }>
               <HomePage />
+            </Suspense>
+          } >
+        </Route>
+
+        {/* Userpage page route */}
+        <Route
+          path='/user'
+          element={
+            <Suspense
+              fallback={
+                <LoadingPage />
+              }>
+              <UserPage />
             </Suspense>
           } >
         </Route>

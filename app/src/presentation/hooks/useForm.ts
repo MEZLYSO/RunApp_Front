@@ -23,11 +23,14 @@ const useForm = () => {
 
   const { loginService } = AuthService()
 
-  const handleSubmitLogin: ChangeEventHandler<HTMLFormElement> = (e) => {
+  const handleSubmitLogin: ChangeEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault()
     const { password, email } = formData
-    loginService({ password, email })
-    // navigate('/home', { replace: true })
+    const res = await loginService({ password, email })
+    if (res.status === 201) {
+      navigate('/home', { replace: true })
+      sessionStorage.setItem('data', JSON.stringify(res.data))
+    }
   }
 
   // Functions for change type in Input password
