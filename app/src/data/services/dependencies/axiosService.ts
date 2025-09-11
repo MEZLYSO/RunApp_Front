@@ -9,4 +9,8 @@ export class axiosService {
   async post(url: string, data: any) {
     return await axios.post(url, data)
   }
+
+  async delete(url: string) {
+    return await axios.delete(url)
+  }
 }

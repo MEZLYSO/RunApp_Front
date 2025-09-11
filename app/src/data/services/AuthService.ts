@@ -1,18 +1,39 @@
 import { axiosService } from "./dependencies/axiosService"
 
+type FormDataUser = {
+
+  email: string
+
+  password: string
+
+  name?: string
+
+  surname1?: string
+
+  surname2?: string
+
+}
+
 const AuthService = () => {
 
   const BASE_URL = "http://localhost:3000"
   const AxiosService = new axiosService()
 
-  async function loginService(user: { email: string, password: string }) {
+  async function loginService(user: FormDataUser) {
     const res = await AxiosService.post(`${BASE_URL}/auth/login`, user)
     const { status, data } = res
     return { status, data }
   }
 
+  async function signupService(user: FormDataUser) {
+    const res = await AxiosService.post(`${BASE_URL}/auth/signup`, user)
+    const { status, data } = res
+    return { status, data }
+  }
+
   return {
-    loginService
+    loginService,
+    signupService
   }
 }
 

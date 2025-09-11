@@ -1,19 +1,11 @@
+import type { Career } from "../../../../data/types"
 import useCareer from "../../../hooks/useCareer"
-
-type Career = {
-  id: string
-  name: string
-  description: string
-  date: string
-  distance: number
-  place: string
-}
+import useManageEnrolled from "../../../hooks/useManageEnrolled"
 
 function CareerAvailables() {
 
   const { data, status } = useCareer()
-
-  console.log(status);
+  const { getKey } = useManageEnrolled()
 
   return (
     <div className="bg-white rounded-xl shadow p-6">
@@ -27,7 +19,11 @@ function CareerAvailables() {
               className="p-4 bg-gray-50 rounded-lg shadow-sm flex items-center justify-between">
               {item.name}
               <p>{item.description}</p>
-              <button className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-md text-sm">Inscribirse</button>
+              <button
+                onClick={() => getKey(item.id)}
+                className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-md text-sm">
+                Inscribirse
+              </button>
             </li>
           )
           )}

@@ -14,7 +14,6 @@ function Login() {
       <BackgroundAuth />
       <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md z-0">
         <h2 className="text-2xl font-bold mb-6">Iniciar sesión</h2>
-
         <form
           method="POST"
           onSubmit={handleSubmitLogin}
@@ -25,9 +24,8 @@ function Login() {
               id="email"
               changeCont={handleChange}
               type="email"
-              placeholder="Correo electrónico" />
+              placeholder="diegocarlosmarcial@gmail.com" />
           </div>
-
           <div>
             <label className="block text-sm font-medium text-gray-700">Contraseña</label>
             <div className="relative">
@@ -35,7 +33,7 @@ function Login() {
                 id="password"
                 changeCont={handleChange}
                 type={type.type}
-                placeholder="Contraseña" />
+                placeholder="*********" />
               <span
                 onClick={handleVisible}
                 className="text-2xl absolute inset-y-0 right-3 flex items-center text-gray-400 cursor-pointer">
@@ -43,9 +41,7 @@ function Login() {
               </span>
             </div>
           </div>
-
           <ButtonPrimary message="Iniciar sesión" />
-
           <p className="text-sm text-center text-gray-600">
             ¿No tienes cuenta?
             <a href="/auth/signup" className="text-green-600 hover:underline">Regístrate</a>

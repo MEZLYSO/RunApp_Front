@@ -29,7 +29,6 @@ function HomePage() {
           <CareerAvailables />
 
         </section>
-        <a href="/user">User</a>
       </div>
 
     </>

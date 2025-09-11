@@ -4,7 +4,15 @@ import InputField from "./components/InputField"
 import ButtonPrimary from "./components/ButtonPrimary"
 
 function Singnup() {
-  const { handleChange, type, handleVisible } = useForm()
+  const { handleChange, type, handleVisible, handleSubmitSignUp } = useForm()
+
+  const structForm = [
+    { id: "name", label: "Nombre", type: "text", placeholder: "Ej. Luis Alberto" },
+    { id: "surname1", label: "Primer Apellido", type: "text", placeholder: "Ej. Castro" },
+    { id: "surname2", label: "Segundo Apellido", type: "text", placeholder: "Ej. Cruz" },
+    { id: "email", label: "Correo electrónico", type: "email", placeholder: "Ej. luiscastro@gmail.com" }
+  ]
+
   return (
     <div className="min-h-screen flex items-center justify-center p-6">
 
@@ -13,16 +21,23 @@ function Singnup() {
       <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md z-0">
         <h2 className="text-2xl font-bold mb-6">Crear cuenta</h2>
 
-        <form className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700">Correo electrónico</label>
-            <InputField
-              changeCont={handleChange}
-              id="email"
-              type="email"
-              placeholder="Correo electrónico "
-            />
-          </div>
+        <form
+          method="POST"
+          onSubmit={handleSubmitSignUp}
+          className="space-y-4">
+          {structForm.map((input) => (
+            <div
+              key={input.id}
+            >
+              <label className="block text-sm font-medium text-gray-700">{input.label}</label>
+              <InputField
+                changeCont={handleChange}
+                id={input.id}
+                type={input.type}
+                placeholder={input.placeholder}
+              />
+            </div>
+          ))}
 
           <div>
             <label className="block text-sm font-medium text-gray-700">Contraseña</label>

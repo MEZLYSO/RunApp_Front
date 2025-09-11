@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router"
 
 type UserData = {
   id: string
@@ -25,8 +26,15 @@ const useSessionStorage = () => {
     }
   }, [])
 
+  const navigate = useNavigate()
+  const closeSesssion = () => {
+    sessionStorage.removeItem('data')
+    navigate('/', { replace: true })
+  }
+
   return {
-    userData
+    userData,
+    closeSesssion
   }
 }
 

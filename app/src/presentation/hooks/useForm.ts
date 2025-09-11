@@ -21,16 +21,34 @@ const useForm = () => {
 
   //Auth Methods
 
-  const { loginService } = AuthService()
+  const { loginService, signupService } = AuthService()
 
   const handleSubmitLogin: ChangeEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault()
-    const { password, email } = formData
-    const res = await loginService({ password, email })
-    if (res.status === 201) {
-      navigate('/home', { replace: true })
-      sessionStorage.setItem('data', JSON.stringify(res.data))
+    try {
+      const res = await loginService(formData)
+      if (res.status === 201) {
+        sessionStorage.setItem('data', JSON.stringify(res.data))
+        navigate('/home', { replace: true })
+      }
+    } catch (error) {
+      console.log(error);
     }
+
+  }
+
+  const handleSubmitSignUp: ChangeEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault()
+    try {
+      const res = await signupService(formData)
+      if (res.status === 201) {
+        sessionStorage.setItem('data', JSON.stringify(res.data))
+        navigate('/home', { replace: true })
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
   }
 
   // Functions for change type in Input password
@@ -44,11 +62,13 @@ const useForm = () => {
     }
   }
 
+
   return {
     formData,
     type,
     handleChange,
     handleSubmitLogin,
+    handleSubmitSignUp,
     handleVisible
   }
 
