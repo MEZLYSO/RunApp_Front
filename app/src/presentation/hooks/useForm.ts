@@ -28,7 +28,7 @@ const useForm = () => {
     e.preventDefault()
     try {
       const res = await loginService(formData)
-      if (res && res.status === 201) {
+      if (res && res?.status === 201) {
         sessionStorage.setItem('data', JSON.stringify(res.data))
         navigate('/home', { replace: true })
       }
@@ -42,7 +42,7 @@ const useForm = () => {
     e.preventDefault()
     try {
       const res = await signupService(formData)
-      if (res && res.status === 201) {
+      if (res && res?.status === 201) {
         sessionStorage.setItem('data', JSON.stringify(res.data))
         navigate('/home', { replace: true })
       }
