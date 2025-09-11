@@ -37,10 +37,6 @@ function UserPage() {
 
         <div className="flex flex-col space-y-3 mt-6">
           <button
-            className="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md font-medium">
-            Editar información
-          </button>
-          <button
             onClick={async () => await deleteUser(userData.id)}
             className="w-full bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 rounded-md font-medium">
             Borrar cuenta

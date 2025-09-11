@@ -1,32 +1,30 @@
+import { Toaster } from "react-hot-toast"
+import useCareer from "../../hooks/useCareer"
 import useSessionStorage from "../../hooks/useSessionStorage"
 import CareerAvailables from "./components/CareerAvailables"
+import CareerEnrolled from "./components/CareerEnrolled"
 import HeaderWelcome from "./components/HeaderWelcome"
 
 function HomePage() {
 
   const { userData } = useSessionStorage()
+  const { dataEnrolled, statusEnrolled, statusAvailables, dataAvailables } = useCareer(userData.id)
 
   return (
     <>
       <div className="min-h-screen bg-gray-100 p-6">
-
+        <Toaster position="top-right" />
         {/* <!-- Bienvenida --> */}
         <HeaderWelcome name={userData.name} />
 
         {/* <!-- Carreras --> */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-15">
 
           {/* <!-- Carreras inscritas --> */}
-          <div className="bg-white rounded-xl shadow p-6">
-            <h3 className="text-lg font-semibold mb-4 text-gray-800">Carreras inscritas</h3>
-            <ul className="space-y-3">
-              <li className="p-4 bg-gray-50 rounded-lg shadow-sm">Maratón Ciudad 2025</li>
-              <li className="p-4 bg-gray-50 rounded-lg shadow-sm">Carrera Nocturna 10K</li>
-            </ul>
-          </div>
+          <CareerEnrolled dataEnrolled={dataEnrolled} statusEnrolled={statusEnrolled} />
 
           {/* <!-- Carreras disponibles --> */}
-          <CareerAvailables />
+          <CareerAvailables dataAvailables={dataAvailables} statusAvailables={statusAvailables} userId={userData.id} />
 
         </section>
       </div>

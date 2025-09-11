@@ -13,4 +13,5 @@ export class axiosService {
   async delete(url: string) {
     return await axios.delete(url)
   }
+
 }

@@ -1,6 +1,7 @@
 import { useState, type ChangeEventHandler } from "react"
 import { useNavigate } from "react-router"
 import AuthService from "../../data/services/AuthService"
+import CareerService from "../../data/services/CareerService"
 
 const useForm = () => {
 
@@ -62,6 +63,12 @@ const useForm = () => {
     }
   }
 
+  const { removeEnrolled } = CareerService()
+
+  const removeElementCareer = async (id: string) => {
+    await removeEnrolled(id)
+    window.location.reload()
+  }
 
   return {
     formData,
@@ -69,7 +76,8 @@ const useForm = () => {
     handleChange,
     handleSubmitLogin,
     handleSubmitSignUp,
-    handleVisible
+    handleVisible,
+    removeElementCareer
   }
 
 }

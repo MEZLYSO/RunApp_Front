@@ -2,6 +2,7 @@ import { lazy } from "react"
 import useForm from "../../hooks/useForm"
 import ButtonPrimary from "./components/ButtonPrimary"
 import InputField from "./components/InputField"
+import { Toaster } from "react-hot-toast"
 const BackgroundAuth = lazy(() => import("../../components/ui/BackgroundAuth"))
 
 function Login() {
@@ -11,6 +12,7 @@ function Login() {
   return (
     <div
       className="min-h-screen flex items-center justify-center p-6">
+      <Toaster position="top-center" />
       <BackgroundAuth />
       <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md z-0">
         <h2 className="text-2xl font-bold mb-6">Iniciar sesión</h2>
